@@ -1,0 +1,10 @@
+{
+  "name": "sowa",
+  "version": "0.0.1",
+  "description": "primera version del proyecto sowa",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  }
+}
