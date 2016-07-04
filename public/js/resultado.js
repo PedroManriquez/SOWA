@@ -1,7 +1,5 @@
-					$("#buttonKM").click(function(){
-						//$("span").load();
-						var km=$("#km").val();
-						var porcen=retornar()/100;
-						console.log(porcen);
-						$("#resultKM").html((km*porcen )+" Kilometros cuadrados distintos");
-					});
+	$("#buttonKM").click(function(){
+		var km=$("#km").val();
+		var porcen=retornar()/100;
+		$("#resultKM").html((km*porcen )+" Kilometros cuadrados distintos");
+	});

@@ -9,3 +9,9 @@ body{
 #futerPag{
     background: #071418;
 }
+.fondo{
+	background-color: #0B2F3A;
+	color:white;
+	border-style:solid;
+	border: 5px dashed #ccc;
+}
