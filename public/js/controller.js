@@ -8,15 +8,22 @@ app.factory('socket', function() {
     return socket;
 });
 
-app.controller("appSowa", function ($scope, socket){
-    //$scope.resultKM = "resultKM";
-    $scope.ListresultKM = [];
+app.controller("appChat", function ($scope, socket){
+    $scope.apellido = "Gutiérrez";
+    $scope.user_name = "Luis";
+    $scope.mensajes = [];
     
-    $scope.enviarDiferencia = function(){
-        //socket.emit('chat-message', $scope.message);
-        console.log("Envié: "+ $scope.resultKM);
-        //$scope.resultKM = "";
+    $scope.enviarMensaje = function(){
+        socket.emit('chat-message', $scope.message);
+        console.log("Envié: "+ $scope.message);
+        $scope.message = "";
     };
+    
+    socket.on('chat-message', function(msg){
+        console.log("Recibí : "+ msg);
+        $scope.mensajes.push(msg);
+        $scope.$digest();
+    });
     
     socket.on('chat-msgs', function(msgs){
         for(i in msgs){
