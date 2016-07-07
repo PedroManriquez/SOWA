@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="../css/resemble.css">	
 		<link rel="stylesheet" href="../css/style.css">	
 	</head>
-	<body>
+	<body ng-app="appl">
 		<div class="container-fluid">
 			<div class="hero-unit fondo">
 			<header>
@@ -101,6 +101,14 @@
 									<br>
 									<div class="col-md-2"><strong><p id="resultKM" for="resultKM" ></p></strong></div>
 								</div>
+								
+								<form ng-submit="submit()" ng-controller="diferenciaCtrl">
+								  El texto:
+								  <input type="hidden" ng-model="text" name="text" />
+								  <input type="submit" id="submit" value="Submit" />
+								  <pre>list={{list}}</pre>
+								</form>
+							
 							</div>
 						</div>
 					</div>
@@ -126,6 +134,10 @@
 			</p>
 			</b>
 		</footer>
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	        <script src="../js/angular.min.js"></script>
+	        <script src="../js/controller.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="../js/resemble.js"></script>
 		<script src="../js/main.js"></script>
