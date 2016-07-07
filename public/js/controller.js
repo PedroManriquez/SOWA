@@ -8,7 +8,7 @@ myapp.factory('socket', function() {
     return socket;
 });
 
-myapp.controller("diferenciaCtrlt", function ($scope, socket){
+myapp.controller("diferenciaCtrl", function ($scope, socket){
     
     $scope.list = [];
         $scope.text = 'km';
