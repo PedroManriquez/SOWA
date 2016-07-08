@@ -1,4 +1,5 @@
 	var porcentaje;
+	var diff;
 
 	$(function(){
 		var $target = $('#drop-zone');
@@ -57,7 +58,9 @@
 			var time = Date.now();
 			var diffImage = new Image();
 			diffImage.src = data.getImageDataUrl();
-
+			diff=diffImage;
+			console.log("SRC de diferencia");
+			console.log(diff);
 			$('#image-diff').html(diffImage);
 
 			$(diffImage).click(function(){
@@ -98,6 +101,8 @@
 			file1 = file;
 			if(file2){
 				resembleControl = resemble(file).compareTo(file2).onComplete(onComplete);
+				diff=resembleControl;
+				console.log(diff);
 			}
 		});
 
@@ -105,6 +110,8 @@
 			file2 = file;
 			if(file1){
 				resembleControl = resemble(file).compareTo(file1).onComplete(onComplete);
+				diff=resembleControl;
+				console.log(diff);
 			}
 		});
 
@@ -142,7 +149,7 @@
 					errorColor: {
 						red: 255,
 						green: 0,
-						blue: 255
+						blue: 0
 					}
 				});
 				resembleControl.repaint();

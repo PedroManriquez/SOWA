@@ -8,5 +8,8 @@ var port 		= process.env.PORT || 8080,
 									})
 								);
 
+var imgsch      = require('./models/ImgModel').imgsch;
+
 require('./config')(app);
 require('./routes')(app, io);
+require('./server')(io, imgsch);

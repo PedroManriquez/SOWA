@@ -3,6 +3,4 @@ module.exports = function(app, io){
 		res.render('index');
 		next();
 	});
-	
-
 }
