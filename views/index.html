@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" ng-controller="appSowa">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -9,8 +9,14 @@
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" href="../css/resemble.css">	
 		<link rel="stylesheet" href="../css/style.css">	
+		<script src="../js/angular.min.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	    <script src="../js/jquery-1.9.1.js"></script>
+	    <script src="../js/resemble.js"></script>
+		<script src="../js/main.js"></script>
+	    <script src="../js/sowacontroller.js"></script>
 	</head>
-	<body ng-app="appl">
+	<body ng-app="sowa" ng-controller="SowaController">
 		<div class="container-fluid">
 			<div class="hero-unit fondo">
 			<header>
@@ -59,7 +65,7 @@
 								<br/>
 
 								<div class="btn-group buttons" style="display:none">
-									<button class="btn active" id="pink">Rosa</button>
+									<button class="btn active" id="pink">Rojo</button>
 									<button class="btn" id="yellow">Amarillo</button>
 								</div>
 								<br/>
@@ -96,25 +102,11 @@
 								</p>
 								<div class="row text-left" >
 									<legend style="color:white;">Ingrese KM cuadrados de la imagen</legend>
-									<div class="col-md-2"><input class="form-group" type="text" id="km"></div>
-									<div class="col-md-2"><button class="btn btn-success btn-lg" id="buttonKM">Calcular</button></div>
+									<div class="col-md-2"><input class="form-group" type="text" ng-model="kms"></div>
+									<div class="col-md-2"><button class="btn btn-success btn-lg" ng-click="enviarValores(kms)">Calcular</button></div>
 									<br>
 									<div class="col-md-2"><strong><p id="resultKM" for="resultKM" ></p></strong></div>
-								</div>
-								
-								<form ng-submit="enviarKilometros()">
-								  <input type="hidden" ng-id="difKilometros" autocomplete="off" ng-model="difKilometros" /><button>Guardar</button>
-                                    
-                                    
-                                    
-                                    
-                                    <script>
-                                    function myFunction() {
-                                        document.getElementById("demo").innerHTML = "Hello World";
-                                    }
-                                    </script>    
-                                </form>
-							
+								</div>					
 							</div>
 						</div>
 					</div>
@@ -140,13 +132,6 @@
 			</p>
 			</b>
 		</footer>
-		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-	        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-	        <script src="../js/angular.min.js"></script>
-	        <script src="../js/controller.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="../js/resemble.js"></script>
-		<script src="../js/main.js"></script>
-		<script src="../js/resultado.js"></script>
+	    
 	</body>
 </html>

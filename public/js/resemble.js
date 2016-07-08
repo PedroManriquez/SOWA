@@ -540,14 +540,10 @@ URL: https://github.com/Huddle/Resemble.js
 
 			if(img.height < h || img.width < w){
 				c = document.createElement('canvas');
-				console.log("canvas :");
-				console.log(c)
 				c.width = w;
 				c.height = h;
 				context = c.getContext('2d');
 				context.putImageData(img, 0, 0);
-				console.log("context :");
-				console.log(context);
 				return context.getImageData(0, 0, w, h);
 			}
 

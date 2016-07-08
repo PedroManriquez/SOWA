@@ -59,7 +59,6 @@
 			var diffImage = new Image();
 			diffImage.src = data.getImageDataUrl();
 			diff=diffImage;
-			console.log("SRC de diferencia");
 			console.log(diff);
 			$('#image-diff').html(diffImage);
 
@@ -81,7 +80,6 @@
 				porcentaje=data.misMatchPercentage;
 
 				
-				console.log(porcentaje);
 				if(!data.isSameDimensions){
 					$('#differentdimensions').show();
 
@@ -101,8 +99,6 @@
 			file1 = file;
 			if(file2){
 				resembleControl = resemble(file).compareTo(file2).onComplete(onComplete);
-				diff=resembleControl;
-				console.log(diff);
 			}
 		});
 
@@ -110,8 +106,6 @@
 			file2 = file;
 			if(file1){
 				resembleControl = resemble(file).compareTo(file1).onComplete(onComplete);
-				diff=resembleControl;
-				console.log(diff);
 			}
 		});
 
@@ -248,6 +242,11 @@
 		}());
 
 	});
-	function retornar(){
+	//funciones claves que usaremos para armar el JSON que enviaremos 
+	//a traves del evento sowa-event mediante socket.io
+	function retornarPorcentaje(){
 		return porcentaje;
+	}
+	function retornarSrcIMG(){
+		return diff;
 	}

@@ -5,9 +5,9 @@ mongoose.connect("mongodb://localhost/sowaDDBB");
 
 var img_schema   = new Schema(
 	{
-    	img: String,
-    	porcentaje: Number,
-    	km: Number
+    	src: String,
+    	porcentaje: String,
+    	km: String
 	}
 );
 

@@ -1,15 +1,14 @@
 
-module.exports=function(io, User, Msg){
+module.exports=function(io, imgsch){
 	io.sockets.on('connection', function(socket) {
 		
-		console.log('a user connected');
+		console.log('Welcome to SOWA me explico o no me explico, testo!!!');
 		socket.emit('sowa-welcome', {wel: 'Welcome to SOWA me explico o no me explico, testo!!!'});
 		
 
 		socket.on('sowa-event', function(res_event) {
-			
+			console.log('escucho evento sowa-event');
 			var json_img = res_event;
-			console.log("El json es : "+json_img);
 			var json_sowa = new imgsch(json_img);
 			json_sowa.save(function(){
 			    console.log("SOWA say: data succesfully");
