@@ -1,22 +1,34 @@
 //Inicializo la variable de mi aplicación.
-var myapp = angular.module('appl', []);
+var app = angular.module("app", []);
 
 //Uso el servicio factory para acceder a socket io y dejarlo como servicio.
-myapp.factory('socket', function() {
+app.factory('socket', function() {
     var socket = io();
     
     return socket;
 });
 
-myapp.controller("diferenciaCtrl", function ($scope, socket){
+app.controller("appSowa", function ($scope, socket){
+    $scope.kilometros = [];
     
-    $scope.list = [];
-        $scope.text = 'km';
-            $scope.submit = function() {
-                if ($scope.text) {
-                    $scope.list.push(this.text);
-                    $scope.text = '';
-                }
-            };
+    $scope.enviarKilometros = function(){
+        socket.emit('chat-message', $scope.difKilometros);
+        console.log("Envié: "+ $scope.difKilometros);
+        $scope.difKilometros = "";
+    };
+    /*
+    socket.on('chat-message', function(msg){
+        console.log("Recibí : "+ msg);
+        $scope.mensajes.push(msg);
+        $scope.$digest();
+    });
     
+    socket.on('chat-msgs', function(msgs){
+        for(i in msgs){
+            console.log("mensaje: "+msgs[i]);
+            $scope.mensajes.push(msgs[i].mensaje);
+        }
+        $scope.$digest();
+    });
+    */
 });
