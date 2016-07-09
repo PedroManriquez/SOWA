@@ -6,8 +6,8 @@
 		<title>SOWA</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
-		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" href="../css/resemble.css">	
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" href="../css/style.css">	
 		<script src="../js/angular.min.js"></script>
 		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
@@ -17,76 +17,93 @@
 	    <script src="../js/sowacontroller.js"></script>
 	</head>
 	<body ng-app="sowa" ng-controller="SowaController">
+
+		<nav class="navbar navbar-inverse navbar-fixed-top headers" header-sowa>
+		  
+		</nav>
+		<br><br>
+
+		
 		<div class="container-fluid">
-			<div class="hero-unit fondo">
-			<header>
-				<div class="page-header">
-					<h1>SOWA : Análisis y comparación de Imágenes</h1>
-				</div>
-			</header>
-	
-			<section role="main">
-				
-				<div class="row">
-					<div class="span12">
-						<div class="row">
-							<div class="span6">
+			<div class="jumbotron fondo">
+				<!--Imagenes a comparar -->
+				<div class="jumbotron cuadro">
+					<div class="row">
+						<div class="col-lg-12">
+						<h3 class="text-center">Imágenes a Comparar:</h3>
+							<div class="col-l-1"></div>
+							<div class="col-lg-5 margen">
 								<div id="dropzone1" class="small-drop-zone">
 									<p>Arrastre 1° Imagen</p>
 								</div>
+							</div>
+							<div class="col-lg-5">
 								<div id="dropzone2" class="small-drop-zone">
 									<p>Arrastre 2° Imagen</p>
 								</div>
 							</div>
-							<div class="span5 offset1">
-								<h2>¿Comparar dos Imágenes?</h2>
-								<p>
-								Deseas Probar el software, ¿usa imagenes de ejemplo? <button class="btn btn-primary" id="example-images">Usa Imágenes de Ejemplo</button>
-								</p>
+							<div class="col-lg-1"></div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="text-center">
+							<button class="btn btn-primary btn-lg" id="example-images">Usa Imágenes de Ejemplo</button>
+						</div>
+					</div>
+				</div>
+				<!--Fin de Imagenes a comparar -->
+				<br>
+				<!--Imagenes de diferencia y botones -->
+				<div class="jumbotron cuadro">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="col-lg-7">
+								<h3>Botones para manipular Imágen Diff:</h3>
+								<br><br>
+								<div class="text-center">
+								<div class="btn-group buttons" style="display:none">
+									<button class="btn btn-success active" id="raw">Ignorar todo</button>
+									<button class="btn btn-success" id="colors">Ignorar colores</button>
+									<button class="btn btn-success" id="antialising">Ignorar anti-aliasing</button>
+								</div>
+
+								<br/>
+								<br/>
+								<div class="btn-group buttons" style="display:none">
+									<button class="btn btn-success active" id="original-size">Usar tamaño original</button>
+									<button class="btn btn-success" id="same-size">Escalar al mismo tamaño</button>
+								</div>
+
+								<br/>
+								<br/>
+
+								<div class="btn-group buttons" style="display:none">
+									<button class="btn btn-success active" id="pink">Rojo</button>
+									<button class="btn btn-success" id="yellow">Amarillo</button>
+								</div>
+								<br/>
+								<br/>
+
+								<div class="btn-group buttons" style="display:none">
+									<button class="btn btn-success active" id="flat">Plana</button>
+									<button class="btn btn-success" id="movement">Movimiento</button>
+									<button class="btn btn-success" id="flatDifferenceIntensity">Plana con intensidad</button>
+									<button class="btn btn-success" id="movementDifferenceIntensity">Movimiento con intensidad</button>
+								
+								</div>
+								</div>
+							</div>
+
+							<div class="col-lg-5">
 								<div id="image-diff" class="small-drop-zone">
 									<p>La diferencia es:</p>
 								</div>
-								<br/>
-
-								<div class="btn-group buttons" style="display:none">
-									<button class="btn active" id="raw">Ignorar todo</button>
-									<button class="btn" id="colors">Ignorar colores</button>
-									<button class="btn" id="antialising">Ignorar anti-aliasing</button>
-								</div>
-
-								<br/>
-								<br/>
-								<div class="btn-group buttons" style="display:none">
-									<button class="btn active" id="original-size">Usar tamaño original</button>
-									<button class="btn" id="same-size">Escalar al mismo tamaño</button>
-								</div>
-
-								<br/>
-								<br/>
-
-								<div class="btn-group buttons" style="display:none">
-									<button class="btn active" id="pink">Rojo</button>
-									<button class="btn" id="yellow">Amarillo</button>
-								</div>
-								<br/>
-								<br/>
-
-								<div class="btn-group buttons" style="display:none">
-									<button class="btn active" id="flat">Plana</button>
-									<button class="btn" id="movement">Movimiento</button>
-									<button class="btn" id="flatDifferenceIntensity">Plana con intensidad diferente</button>
-									<button class="btn" id="movementDifferenceIntensity">Movimiento con diferente intensidad</button>
-								</div>
-								<br/>
-								<br/>
-
-								<div class="btn-group buttons" style="display:none">
-									<button class="btn active" id="opaque">Opaco</button>
-									<button class="btn" id="transparent">Transparente</button>
-								</div>
-
-								<br/>
-								<br/>
+							</div>
+							<br><br>
+							<div class="row">
+								<br>
+								<br>
 								<div id="diff-results" style="display:none;">
 									<p>
 										<strong>La segunda imagen es <span id="mismatch"></span>% diferente al compararla con la primera imagen.
@@ -100,37 +117,32 @@
 								<p id="thesame" style="display:none;">
 									<strong>Las Imágenes son iguales!</strong>
 								</p>
-								<div class="row text-left" >
-									<legend style="color:white;">Ingrese KM cuadrados de la imagen</legend>
-									<div class="col-md-2"><input class="form-group" type="text" ng-model="kms"></div>
-									<div class="col-md-2"><button class="btn btn-success btn-lg" ng-click="enviarValores(kms)">Calcular</button></div>
-									<br>
-									<div class="col-md-2"><strong><p id="resultKM" for="resultKM" ></p></strong></div>
-								</div>					
+								
 							</div>
 						</div>
 					</div>
-					
 				</div>
-			</section>	
+				<!--Fin Imagenes de diferencia y botones -->
+				<br>
+				<!--Porcentaje en base a area cuadrada -->
+				<div class="jumbotron cuadro">
+					<div class="row">
+						<div class="row" >
+							<legend style="color:white;">Ingrese KM cuadrados de la imagen</legend>
+							<div class="col-lg-3"><input class="form-control" type="text" placeholder="Kilometros referenciales" ng-model="kms"></div>
+							<div class="col-lg-1"></div>
+							<div class="col-lg-2"><button class="btn btn-primary btn-lg" ng-click="enviarValores(kms)">Calcular</button></div>
+							<div class="col-xs-1">=</div>
+							<div class="col-lg-4"><strong><p for="resultKM"> {{resultKM}} Km<sup>2</sup> son Distintos</p></strong></div>
+						</div>	
+					</div>
+				</div>
+				<!--Fin Porcentaje en base a area cuadrada -->
+
 			</div>
 			<br/><br/>
 		</div>
-		<footer class="footer" id="futerPag">
-			<b>
-			<p class= "pie-de-pagina"> 
-				Creadores de SOWA, Guillermo Lemunao, Pedro Manríquez.
-			</p>
-			<p class= "pie-de-pagina"> 
-				Programación Orientada a Eventos.
-			</p>
-			<p class= "pie-de-pagina"> 
-				Universidad de la Frontera, Departamento de Ciencias de la computación e Informática
-			</p>
-			<p class= "pie-de-pagina">	
-				Créditos a James Cryer y a Daniel Rajendran, Desarrolladores de Resemble.js
-			</p>
-			</b>
+		<footer class="footer" id="futerPag" futer-sowa>
 		</footer>
 	    
 	</body>

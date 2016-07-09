@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost/sowaDDBB");
+mongoose.connect('mongodb://localhost/sowa');
 
 var img_schema   = new Schema(
 	{
